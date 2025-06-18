@@ -3,15 +3,28 @@ GRPO (Generalized Rejection Prediction Objective)，它是一種針對語言模�
 
 ## Author：國立陽明交通大學 資訊管理與財務金融學系財務金融所碩一 313707043 翁智宏
 
-## 📌 專案目標
+## 🎯 任務目標
 
-本專案旨在實作 GRPO 訓練流程，使中文語言模型能夠更正確地回答單選題，並對不適當的選項進行拒答。
+本專案目的是透過 **GRPO** 技術，在本地端微調開源中文語言模型（如 Qwen2.5-3B），使模型學會根據輸入選擇題回答正確選項，或在無法判斷時拒絕給出錯誤答案。
+
+> 📌 此任務禁止使用非中國釋出的模型或任何雲端推論資源，並以 Local 訓練與本地推理為主。
+
+---
+
+---
+
+## 🧰 使用技術與模型
+
+| 元件        | 描述 |
+|-------------|------|
+| 🌐 Model     | `Qwen/Qwen2.5-3B-Instruct`（中國釋出） |
+| 🧩 Fine-tune | 使用 `LoRA` 微調技術，結合 `GRPOTrainer` |
+| 🧠 Reward    | 自定義 reward function，根據 `<reasoning>` 長度與 `<answer>` 是否正確給分 |
+| 📄 Dataset   | 題目、選項與正確答案組成的 `.csv` 格式（train/test） |
 
 ---
 
 ## 🧠 方法概述
-
-本專案採用 **Supervised Fine-tuning + GRPO loss** 的方式，對開源中文語言模型（如 Qwen 2.5 3B-Instruct）進行指令調校，強化模型針對選擇題的判別能力。
 
 - **模型來源**：Qwen/Qwen2.5-3B-Instruct，使用 Hugging Face 模型倉庫下載。
 - **訓練資料格式**：
