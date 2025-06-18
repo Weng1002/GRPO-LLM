@@ -3,7 +3,7 @@ GRPO (Generalized Rejection Prediction Objective)，它是一種針對語言模�
 
 ## Author：國立陽明交通大學 資訊管理與財務金融學系財務金融所碩一 313707043 翁智宏
 
-![Task](Fig/task.jpg)
+![Task](task.jpg)
 
 ## 🎯 任務目標
 
